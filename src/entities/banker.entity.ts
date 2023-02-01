@@ -46,7 +46,6 @@ class BankerEntity extends PersonEntity implements PersonInterface, BankerInterf
   @JoinColumn({ name: "supervisor_id" })
   supervisor: BankerEntity;
   //CCC: how do i assign a default value of e.g value of 1 (id of supervisor) and ON DELETE SET DEFAULT so whenever a supervisor is deleted, such banker is assigned 1 as its supervisor (i.e The head boss becomes his supervisor until a new supervisor is assigned officially)
-  //CCC: how to successfully truncate a table without truncating the table(s) that references it
   
   @OneToMany(() => BankerEntity, banker => banker.supervisor)
   supervisees: BankerEntity[];
